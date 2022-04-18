@@ -22,12 +22,12 @@ class APIManager:
         self.token_due = datetime.datetime.now() - datetime.timedelta(days=1)
         self.retry = 3
         self.api_key = "X"
-        self.login_json = {"UserId": "integracaod365gfapi",
-                          "Password": "3IQ69&hJ+CMVtu*E26sZLA1#+VBkqY",
-                          "DateTimeSource": "2020-09-10T11:20:00",
-                          "DomainName": "EXTERNO",
-                          "ProductId": "GFINTEGRATION",
-                          "Method": 0,
+        self.login_json = {"UserId": "xxx",
+                          "Password": "xxx",
+                          "DateTimeSource": "xxx",
+                          "DomainName": "xxx",
+                          "ProductId": "xxx",
+                          "Method": xxx,
                           "LoginKeyList": []}
 
     def get_token(self):
