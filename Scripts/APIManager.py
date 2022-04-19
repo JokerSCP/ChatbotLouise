@@ -27,7 +27,7 @@ class APIManager:
                           "DateTimeSource": "xxx",
                           "DomainName": "xxx",
                           "ProductId": "xxx",
-                          "Method": xxx,
+                          "Method": 0,
                           "LoginKeyList": []}
 
     def get_token(self):
@@ -191,6 +191,9 @@ class APIManager:
 
     def authenticated_talk(self, talk_external_id, cpf):
         tkn = self.get_token()
+        aux1 = cpf.replace(".", "")
+        aux2 = aux1.replace("/", "")
+        cpf_aux = aux2.replace("-", "")
         if tkn != "X":
             counter = 1
             aux = "X"
@@ -199,7 +202,7 @@ class APIManager:
                     if self.verbose:
                         print("Iniciando AuthenticatedTalk: {0}".format(self.url_resource_authenticated_talk))
                     header = {'Content-Type': 'application/json; charset=utf-8', 'Authorization': 'Bearer ' + tkn}
-                    params = {"talkExternalId": talk_external_id, "cpf": cpf}
+                    params = {"talkExternalId": talk_external_id, "cpf": cpf_aux}
                     r = requests.get(self.url_resource_authenticated_talk, headers=header, params=params)
                     js = r.json()
                     if js["isSucess"]:
